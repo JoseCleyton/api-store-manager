@@ -7,6 +7,10 @@ exports.total = async () => {
     return await Client.find().count()
 }
 
+exports.listClients = async () => {
+    return await Client.find();
+}
+
 exports.create = async (data) => {
     let client = await Client.create({
         name: data.name,

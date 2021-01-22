@@ -10,6 +10,13 @@ exports.total = async (req, res, next) => {
 
 };
 
+exports.listClients = async (req, res, next) => {
+    res.status(200).send({
+        clients: await clienteRepository.listClients()
+    })
+
+};
+
 exports.create = async (req, res, next) => {
     const { name, address, phoneNumber } = req.body;
 
