@@ -19,3 +19,19 @@ exports.create = async (data) => {
     })
     return client;
 }
+
+exports.update = async (data) => {
+   await Client.findByIdAndUpdate(data._id, {
+        $set: {
+            name: data.name,
+            address: data.address,
+            phoneNumber: data.phoneNumber
+        }
+    })
+  
+    return await Client.findById(data._id)
+}
+
+exports.delete = async (id) => {
+    return await Client.deleteOne({ _id: id });
+}

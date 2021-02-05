@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-mongoose.connect("mongodb+srv://joseCleyton:binha.4321@cluster0.yslp8.azure.mongodb.net/store-manager?retryWrites=true&w=majority", { useNewUrlParser: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
     .then(() => { })
     .catch((erro) => {
         console.log(erro)
