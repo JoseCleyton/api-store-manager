@@ -10,7 +10,8 @@ exports.getCashier = async (req, res, next) => {
 };
 
 exports.update = async (cashierValue) => {
-    const cashier = await cashierRepository.getCashier();
+    const cashiers = await cashierRepository.getCashier();
+    let cashier = cashiers[0]
     cashier.cashierValue += cashierValue;
     return await cashierRepository.update(cashier)
 };
