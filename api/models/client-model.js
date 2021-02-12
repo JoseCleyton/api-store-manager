@@ -15,6 +15,12 @@ const schema = new Schema({
     },
     phoneNumber: {
         type: String
+    },
+    amountPurchases: {
+        type: Number
+    },
+    fidelity: {
+        type: Number
     }
 });
 

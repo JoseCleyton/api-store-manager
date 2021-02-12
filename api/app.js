@@ -13,10 +13,14 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 const userModel = require('./models/user-model');
 const clientModel = require('./models/client-model');
 const productModel = require('./models/product-model');
+const checkoutModel = require('./models/checkout-model');
+const itenModel = require('./models/iten-model');
+const cashierModel = require('./models/cashier-model');
 
 const authRouter = require('./routes/auth-route');
 const clientRouter = require('./routes/client-route');
 const stockRouter = require('./routes/stock-route');
+const checkoutRouter = require('./routes/checkout-route');
 
 app.use(bodyParser.json({
     limit: "5mb"
@@ -36,5 +40,6 @@ app.use(function (req, res, next) {
 app.use('/auth', authRouter);
 app.use('/client', clientRouter);
 app.use('/stock', stockRouter);
+app.use('/checkout', checkoutRouter);
 
 module.exports = app;

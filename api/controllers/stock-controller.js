@@ -14,6 +14,10 @@ exports.listStock = async (req, res, next) => {
     })
 };
 
+exports.listAllStock = async () => {
+    return await stockRepository.listStock()
+}
+
 exports.create = async (req, res, next) => {
     const { name, price, quantity } = req.body;
     const product = await stockRepository.create({
@@ -53,6 +57,16 @@ exports.update = async (req, res, next) => {
             message: 'Erro ao atualizar Produto'
         })
     }
+
+};
+
+exports.updateProduct = async (product) => {
+    const p = await stockRepository.update({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        quantity: product.quantity
+    })
 
 };
 
