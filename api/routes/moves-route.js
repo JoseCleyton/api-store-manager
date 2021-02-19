@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const cashierController = require('../controllers/cashier-controller');
+const movesController = require('../controllers/moves-controller');
 const authService = require('../services/auth-service')
 
-router.get('', authService.authorize, cashierController.getCashier);
+router.get('', authService.authorize, movesController.getMoves);
 module.exports = router;

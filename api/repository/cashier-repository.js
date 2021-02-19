@@ -12,10 +12,9 @@ exports.create = async () => {
     });
 }
 exports.update = async (cashier) => {
-    const c = await Cashier.findByIdAndUpdate(cashier._id, {
+    return await Cashier.findByIdAndUpdate(cashier._id, {
         $set: {
             cashierValue: cashier.cashierValue
         }
     })
-    return c;
 }

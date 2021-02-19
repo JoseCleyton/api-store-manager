@@ -16,11 +16,14 @@ const productModel = require('./models/product-model');
 const checkoutModel = require('./models/checkout-model');
 const itenModel = require('./models/iten-model');
 const cashierModel = require('./models/cashier-model');
+const moves = require('./models/moves-model');
 
 const authRouter = require('./routes/auth-route');
 const clientRouter = require('./routes/client-route');
 const stockRouter = require('./routes/stock-route');
 const checkoutRouter = require('./routes/checkout-route');
+const cashierRouter = require('./routes/cashier-route');
+const movesRouter = require('./routes/moves-route');
 
 app.use(bodyParser.json({
     limit: "5mb"
@@ -41,5 +44,7 @@ app.use('/auth', authRouter);
 app.use('/client', clientRouter);
 app.use('/stock', stockRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/cashier', cashierRouter);
+app.use('/moves', movesRouter)
 
 module.exports = app;

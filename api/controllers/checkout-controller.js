@@ -19,8 +19,9 @@ exports.checkout = async (req, res, next) => {
     c.fidelity += 1;
     let clientUpdate;
     checkout.date = getDate();
+    let moves = {date: checkout.date, paymentType: checkout.paymentType}
     checkoutRepository.checkout(checkout).then((result) => {
-        cashierController.update(checkout.orderValue);;
+        cashierController.update(checkout.orderValue, moves);;
         stockController.listAllStock()
             .then(stock => {
                 stock.forEach(product => {
